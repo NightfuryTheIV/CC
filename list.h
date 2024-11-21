@@ -31,6 +31,9 @@ h_std_list* createListEmpty();
 // Fonction qui compte le nombre d'élément dans une liste
 int countEltHList(h_std_list list);
 
+// Ajouter une cellule au début de la liste
+void addHeadStd(t_std_list *, int);
+
 // Trouver un élément en fonction de sa place dans la liste
 int findElt(h_std_list list, int nb);
 
