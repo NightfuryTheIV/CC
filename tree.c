@@ -211,8 +211,9 @@ void BFVisit(p_node root) {
     enqueue(&q, root);
 
     while (!isQueueEmpty(q)) {
+
         // Extraire le nœud en tête de la file
-        p_node current = dequeue(q);
+        p_node current = dequeue(&q);
 
         // Afficher la valeur du nœud
         printf("%d ", current->value);
