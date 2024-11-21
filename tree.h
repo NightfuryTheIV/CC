@@ -50,4 +50,8 @@ p_node doublerightRotation(p_node root);
 
 p_node doubleleftRotation(p_node root);
 
+void BFVisit(p_node root);
+
+t_tree createAVL(int *values, int size);
+
 #endif //CC_TREE_H

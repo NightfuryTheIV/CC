@@ -141,3 +141,20 @@ void computeBFs(p_node node) {
     // Calculer et mettre à jour le BF du nœud actuel
     node->BF = leftHeight - rightHeight;
 }
+
+p_node createNodeAVL(int *values, int start, int end) {
+    if (start > end) {
+        return NULL; // Base : aucun nœud dans cet intervalle
+    }
+
+    // Trouver l'élément du milieu
+    int mid = (start + end) / 2;
+
+    // Créer un nœud avec la valeur du milieu
+    p_node newNode = (p_node)malloc(sizeof(t_node));
+    newNode->value = values[mid];
+    newNode->left = createNodeAVL(values, start, mid - 1); // Sous-arbre gauche
+    newNode->right = createNodeAVL(values, mid + 1, end);  // Sous-arbre droit
+
+    return newNode;
+}

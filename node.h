@@ -40,5 +40,8 @@ void updateNodeHeight(p_node node);
 
 void computeBFs(p_node node);
 
+int isNodeBST(p_node node, int min, int max);
+
+p_node createNodeAVL(int *values, int start, int end);
 
 #endif //CC_NODE_H

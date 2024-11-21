@@ -3,6 +3,7 @@
 //
 
 #include "tree.h"
+#include "queue.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -203,4 +204,42 @@ p_node doubleleftRotation(p_node root) {
 
     root->right = rightRotation(root->right); // Rotation droite sur le sous-arbre droit
     return leftRotation(root);               // Rotation gauche sur la racine
+}
+
+// Parcours en largeur de l'arbre
+void BFVisit(p_node root) {
+    if (root == NULL) {
+        return; // L'arbre est vide
+    }
+
+    // Créer une file pour le parcours
+    t_queue q = createQueue(2);
+
+    // Ajouter la racine dans la file
+    enqueue(&q, root);
+
+    while (!isQueueEmpty(q)) {
+        // Extraire le nœud en tête de la file
+        p_node current = dequeue(q);
+
+        // Afficher la valeur du nœud
+        printf("%d ", current->value);
+
+        // Ajouter les enfants gauche et droit à la file
+        if (current->left != NULL) {
+            enqueue(q, current->left);
+        }
+        if (current->right != NULL) {
+            enqueue(q, current->right);
+        }
+    }
+
+    // Libérer la mémoire utilisée par la file
+    freeQueue(q);
+}
+
+t_tree createAVL(int *values, int size) {
+    t_tree tree;
+    tree.root = createNodeAVL(values, 0, size - 1);
+    return tree;
 }
