@@ -36,6 +36,7 @@ int countEltHList(LIST list);
 
 // Compter le nombre d'occurence d'une valeur
 int countVal(t_std_list, int);
+
 // Ajouter une cellule au début de la liste
 void addHeadStd(t_std_list *, int);
 
