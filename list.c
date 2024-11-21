@@ -201,3 +201,11 @@ int isEltInList(LIST list, int val) {
 
     return is_elt_in_list;
 }
+
+int isEmptyStdList(LIST list) {
+    int res = 0;
+    if (list.head == NULL) {
+        res = 1;
+    }
+    return res;
+}
