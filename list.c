@@ -34,14 +34,14 @@ void addTailList(LIST* list, int val) {
 }
 
 // Ajouter une cellule en tête de liste
-void addHeadStd(t_std_list * std, int val) {
+void addHeadStd(LIST * std, int val) {
     p_cell new_cell = createCell(val);
     new_cell->next = std->head;
     std->head = new_cell;
 }
 
 // Compte le nombre d'occurence d'une valeur dans la liste
-int countVal(t_std_list list, int val) {
+int countVal(LIST list, int val) {
     int count = 0;
     p_cell tmp = list.head;
     while (tmp != NULL) {
@@ -50,8 +50,6 @@ int countVal(t_std_list list, int val) {
         }
         tmp = tmp->next;
     }
-    printf("%d fois dans:", count);
-    displayStdList(list);
     return count;
 }
 
