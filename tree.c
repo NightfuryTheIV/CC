@@ -3,3 +3,13 @@
 //
 
 #include "tree.h"
+#include <stdio.h>
+#include <stdlib.h>
+
+p_tree createEmptyTree() {
+
+    // Allocation de la mémoire nécesaire à la création de la liste
+    t_tree* tree = (t_tree*)malloc(sizeof (t_tree));
+    tree->root = NULL;
+    return tree;
+}
