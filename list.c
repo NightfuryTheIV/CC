@@ -100,7 +100,7 @@ void Deleteelt(LIST* list, int val) {
 }
 
 // Retire un élement de la liste
-int removeValFromList(t_std_list* std, int val)
+int removeValFromList(LIST* std, int val)
 {
     int remove = 0;
     if (std->head == NULL) {
@@ -186,24 +186,6 @@ LIST* createListEmpty() {
 
 }
 
-// Fonction qui compte le nombre d'élément dans une liste
-int countEltHList(LIST list) {
-
-    p_cell tmp = list.head;
-    int count = 0;
-
-    // Parcours de la liste
-    while(tmp != NULL) {
-
-        // Augmentation du nombre d'élément
-        count++;
-        tmp = tmp->next;
-    }
-
-    return count;
-
-}
-
 // Trouver un élément en fonction de sa place dans la liste
 int findElt(LIST list, int nb) {
 
@@ -244,4 +226,78 @@ int isEmptyStdList(LIST list) {
         res = 1;
     }
     return res;
+}
+
+
+// --------------------------------------------------------------------------------------------------
+
+
+
+int isValInHtList(HTLIST list, int value) {
+    t_cell* temp = list.head;
+    int found = 0;
+    while ((temp != NULL) && found == 0) {
+        if (temp->value == value) {
+            found = 1;
+        }
+        temp = temp->next;
+    }
+    return found;
+}
+
+void removeValFromHtList(HTLIST* list, int value) {
+    t_cell* temp = list->head;
+    t_cell* prev = NULL;
+
+    if (list->head->value == value) {
+        list->head = list->head->next;
+    } else {
+        int done = 0;
+        while ((temp != NULL) && (done == 0)) {
+            if (temp->value == value) {
+                prev->next = temp->next;
+                done = 1;
+            }
+            prev = temp;
+            temp = temp->next;
+        }
+    }
+}
+
+void addTailHt(HTLIST* list, int value) {
+    t_cell* newcell = createCell(value);
+    if (list->head == NULL) {
+        list->head = newcell;
+        list->tail = newcell;
+    } else {
+        list->tail->next = newcell;
+        list->tail = newcell;
+    }
+}
+
+
+
+
+// ------------------------------------------------------------------------------------
+
+CIRCLIST createEmptyCircList()
+{
+    CIRCLIST cl;
+    cl.head = NULL;
+    cl.tail = NULL;
+
+    return cl;
+}
+
+void addHeadCircList(CIRCLIST * list, int value) {
+    t_cell* newcell = createCell(value);
+    if (list->head == NULL) {
+        list->head = newcell;
+        list->tail = newcell;
+        list->tail->next = list->head;
+    } else {
+        newcell->next = list->head;
+        list->tail->next = newcell;
+        list->tail = newcell;
+    }
 }

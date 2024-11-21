@@ -29,8 +29,6 @@ int removeValFromList(LIST*, int);
 // Création d'une liste vide
 LIST* createListEmpty();
 
-int countEltHList(LIST list);
-
 int countVal(LIST, int);
 
 void addHeadStd(LIST *, int);
@@ -40,5 +38,32 @@ int findElt(LIST list, int nb);
 int isEltInList(LIST list, int val);
 
 int isEmptyStdList(LIST list);
+
+
+
+// --------------------------------------------------------------
+
+
+typedef struct s_ht_list
+{
+    t_cell *head;
+    t_cell *tail;
+} HTLIST;
+
+int isValInHtList(HTLIST list, int value);
+
+void removeValFromHtList(HTLIST* list, int value);
+
+void addTailHt(HTLIST* list, int value);
+
+
+
+// ----------------------------------------------------------------
+
+typedef HTLIST CIRCLIST;
+
+CIRCLIST createEmptyCircList();
+
+void addHeadCircList(CIRCLIST * list, int value);
 
 #endif //CC_LIST_H
