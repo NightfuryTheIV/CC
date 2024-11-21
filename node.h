@@ -24,5 +24,7 @@ typedef struct s_node t_node, *p_node;
  */
 p_node createNode(int);
 
+int isNodeBST(p_node);
+
 
 #endif //CC_NODE_H

@@ -13,3 +13,7 @@ p_tree createEmptyTree() {
     tree->root = NULL;
     return tree;
 }
+
+int isBST(t_tree t) {
+    return isNodeBST(t.root);
+}

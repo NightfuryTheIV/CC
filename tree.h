@@ -14,4 +14,6 @@ typedef struct s_tree
 
 p_tree createEmptyTree();
 
+int isBST(t_tree);
+
 #endif //CC_TREE_H

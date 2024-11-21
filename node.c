@@ -3,6 +3,7 @@
 //
 
 #include "node.h"
+#include <stdlib.h>
 
 p_node createNode(int val)
 {
@@ -13,4 +14,22 @@ p_node createNode(int val)
     nouv->left = nouv->right = NULL;
 
     return nouv;
+}
+
+int isNodeBST(p_node pn)
+{
+    if (pn == NULL) {
+        return 1;
+    }
+    if (pn->left != NULL) {
+        if (pn->left->value >= pn->value) {
+            return 0;
+        }
+    }
+    if (pn->right != NULL) {
+        if (pn->right->value <= pn->value) {
+            return 0;
+        }
+    }
+    return (isNodeBST(pn->left) && isNodeBST(pn->right));
 }
