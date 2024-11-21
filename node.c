@@ -51,3 +51,15 @@ int nodeHeight(p_node node) {
     }
 
 }
+
+int nodeCount(p_node node) {
+
+    if (node == NULL) {
+        return 0;
+    }
+
+    int leftCount = nodeCount(node->left);
+    int rightCount = nodeCount(node->right);
+
+    return 1 + leftCount + rightCount;
+}

@@ -24,6 +24,9 @@ p_node createNode(int);
 
 int isNodeBST(p_node);
 
-int nodeHeight(p_node* node);
+int nodeHeight(p_node node);
+
+int nodeCount(p_node node);
+
 
 #endif //CC_NODE_H

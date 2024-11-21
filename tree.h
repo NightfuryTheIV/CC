@@ -18,4 +18,6 @@ int isBST(t_tree);
 
 int treeHeight(p_node root);
 
+int treeNodeCount(p_node* root);
+
 #endif //CC_TREE_H

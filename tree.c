@@ -19,3 +19,12 @@ p_tree createEmptyTree() {
 int isBST(t_tree t) {
     return isNodeBST(t.root);
 }
+
+
+int treeHeight(p_node root) {
+    return nodeHeight(root);
+}
+
+int treeNodeCount(p_node root) {
+    return nodeCount(root);
+}
