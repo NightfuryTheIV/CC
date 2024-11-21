@@ -96,3 +96,48 @@ void updateNodeDepth(p_node node, int depth) {
     updateNodeDepth(node->left, depth + 1);
     updateNodeDepth(node->right, depth + 1);
 }
+
+int isBalancedNode(p_node node) {
+
+    if (node == NULL) {
+        return 1;
+    }
+
+    int leftHeight = nodeHeight(node->left);
+    int rightHeight = nodeHeight(node->right);
+
+    if (abs(leftHeight - rightHeight) > 1) {
+        return 0;
+    }
+
+    return isBalancedNode(node->left) && isBalancedNode(node->right);
+}
+
+void updateNodeHeight(p_node node) {
+    if (node == NULL) {
+        return;
+    }
+    int leftHeight = (node->left != NULL) ? node->left->height : -1;
+    int rightHeight = (node->right != NULL) ? node->right->height : -1;
+    node->height = 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
+}
+
+void computeBFs(p_node node) {
+    if (node == NULL) {
+        return;
+    }
+
+    // Calcul des BF pour les sous-arbres gauche et droit
+    computeBFs(node->left);
+    computeBFs(node->right);
+
+    // Calculer la hauteur des sous-arbres gauche et droit
+    int leftHeight = (node->left != NULL) ? node->left->height : -1;
+    int rightHeight = (node->right != NULL) ? node->right->height : -1;
+
+    // Mettre à jour la hauteur du nœud actuel
+    node->height = 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
+
+    // Calculer et mettre à jour le BF du nœud actuel
+    node->BF = leftHeight - rightHeight;
+}

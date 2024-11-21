@@ -26,4 +26,28 @@ p_node pnodeValueInTree(p_node root, int value);
 
 void updateTreeDepth(p_node root);
 
+int isPerfectTree(p_node root);
+
+int isDegeneratedTree(p_node node);
+
+int isBalancedTree(p_node root);
+
+int intpow(int base, int exp);
+
+void updateTreeHeights(p_node root);
+
+void updateNodeBF(p_node node);
+
+void updateTreeBFs(p_node root);
+
+int isAVL(p_node root);
+
+p_node leftRotation(p_node root);
+
+p_node rightRotation(p_node root);
+
+p_node doublerightRotation(p_node root);
+
+p_node doubleleftRotation(p_node root);
+
 #endif //CC_TREE_H
