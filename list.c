@@ -40,6 +40,21 @@ void addHeadStd(t_std_list * std, int val) {
     std->head = new_cell;
 }
 
+// Compte le nombre d'occurence d'une valeur dans la liste
+int countVal(t_std_list list, int val) {
+    int count = 0;
+    p_cell tmp = list.head;
+    while (tmp != NULL) {
+        if (tmp->value == val) {
+            count++;
+        }
+        tmp = tmp->next;
+    }
+    printf("%d fois dans:", count);
+    displayStdList(list);
+    return count;
+}
+
 // Fonction d'affichage de la liste
 void displayHList(h_std_list list) {
 
