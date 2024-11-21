@@ -39,3 +39,24 @@ int dequeue(t_queue *p_queue)
     p_queue->first++;
     return p_queue->values[(p_queue->first - 1) % p_queue->size];
 }
+
+
+
+
+// ----------------------------------------------------------------------------------------
+
+
+
+
+void displayQueueL(QUEUELIST q)
+{
+    printf("out ");
+    if (q.head != NULL) {
+        p_cell temp = q.head;
+        while (temp != NULL) {
+            printf("<- %d ", temp->value);
+            temp = temp->next;
+        }
+    }
+    printf("<- in\n");
+}

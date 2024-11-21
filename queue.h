@@ -5,6 +5,8 @@
 #ifndef CC_QUEUE_H
 #define CC_QUEUE_H
 
+#include "list.h"
+
 /**
  * @brief Structure for the queue of integers
  */
@@ -29,13 +31,24 @@ t_queue createQueue(int);
  * @param value : the position to enqueue
  * @return none
  */
-void enqueue(t_queue *,t_position);
+void enqueue(t_queue *,int );
 
 /**
  * @brief Function to dequeue a value from the queue
  * @param p_queue : pointer to the queue
  * @return the value dequeued
  */
-t_position dequeue(t_queue *);
+int dequeue(t_queue *);
+
+
+
+
+// -----------------------------------------------------------------------------
+
+
+
+typedef HTLIST QUEUELIST;
+
+void displayQueueL(QUEUELIST);
 
 #endif //CC_QUEUE_H
