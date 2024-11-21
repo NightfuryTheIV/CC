@@ -25,6 +25,7 @@ p_cell createCell(int val) {
     p_cell cell = (p_cell) malloc(sizeof (t_cell));
     cell->value = val;
     cell->next = NULL;
+    cell->prev = NULL;
     return cell;
 }
 
