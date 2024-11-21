@@ -14,6 +14,7 @@ struct s_cell
 {
     int value;
     struct s_cell *next;
+    struct s_cell *prev;
 };
 typedef struct s_cell t_cell, *p_cell;
 

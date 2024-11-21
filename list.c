@@ -10,7 +10,7 @@
 #include "list.h"
 
 // Ajouter une cellule en fin de liste
-void addTailList(h_std_list* list, int val) {
+void addTailList(LIST* list, int val) {
 
     // Création de la nouvelle cellule
     p_cell new_cell = createCell(val);
@@ -29,12 +29,12 @@ void addTailList(h_std_list* list, int val) {
 
         // Ajout de la cellule en fin de liste
         tmp->next = new_cell;
-        new_cell->prec = tmp;
+        new_cell->prev = tmp;
     }
 }
 
 // Fonction d'affichage de la liste
-void displayHList(h_std_list list) {
+void displayHList(LIST list) {
 
     p_cell tmp = list.head;
     printf("[");
@@ -58,7 +58,7 @@ void displayHList(h_std_list list) {
 }
 
 // Supprimer un éléments de la liste
-void Deleteelt(h_std_list* list, int val) {
+void Deleteelt(LIST* list, int val) {
 
     // Si la liste est vide
     if (list->head == NULL) {
@@ -68,22 +68,22 @@ void Deleteelt(h_std_list* list, int val) {
         p_cell tmp = list->head;
 
         // Parcours de la liste jusqu'à la fin ou jusqu'à l'élément à supprimer
-        while(tmp != NULL || tmp->val != val) {
+        while(tmp != NULL || tmp->value != val) {
             tmp = tmp->next;
         }
 
         // Suppression de l'élément
-        tmp->prec->next = tmp->next;
+        tmp->prev->next = tmp->next;
         deleteCell(tmp);
         free(tmp);
     }
 }
 
 // Créer une nouvelle liste sans un élément donné
-h_std_list* removeElt(h_std_list list, int val) {
+LIST* removeElt(LIST list, int val) {
 
     // Création de la nouvelle liste
-    h_std_list* list2 = createListEmpty();
+    LIST* list2 = createListEmpty();
 
     int remove = 0;
 
@@ -98,17 +98,17 @@ h_std_list* removeElt(h_std_list list, int val) {
         while(tmp != NULL) {
 
             // Ajout du mouvement si ce n'est pas celui donné
-            if (tmp->val != val) {
-                addTailList(list2, tmp->val);
+            if (tmp->value != val) {
+                addTailList(list2, tmp->value);
             }
 
             // Ajout du mouvement si celui donné a déjà été supprimé
-            if (remove == 1 && tmp->val == val) {
-                addTailList(list2, tmp->val);
+            if (remove == 1 && tmp->value == val) {
+                addTailList(list2, tmp->value);
             }
 
             // N'ajoute pas le mouvement donné la première fois
-            if (remove != 1 && tmp->val == val) {
+            if (remove != 1 && tmp->value == val) {
                 remove++;
             }
 
@@ -121,17 +121,17 @@ h_std_list* removeElt(h_std_list list, int val) {
 }
 
 // Création d'une liste vide
-h_std_list* createListEmpty() {
+LIST* createListEmpty() {
 
     // Allocation de la mémoire nécesaire à la création de la liste
-    h_std_list* list = (h_std_list*)malloc(sizeof (h_std_list));
+    LIST* list = (LIST*)malloc(sizeof (LIST));
     list->head = NULL;
     return list;
 
 }
 
 // Fonction qui compte le nombre d'élément dans une liste
-int countEltHList(h_std_list list) {
+int countEltHList(LIST list) {
 
     p_cell tmp = list.head;
     int count = 0;
@@ -149,7 +149,7 @@ int countEltHList(h_std_list list) {
 }
 
 // Trouver un élément en fonction de sa place dans la liste
-int findElt(h_std_list list, int nb) {
+int findElt(LIST list, int nb) {
 
     p_cell tmp = list.head;
 
@@ -160,11 +160,11 @@ int findElt(h_std_list list, int nb) {
         tmp = tmp->next;
     }
 
-    return tmp->val;
+    return tmp->value;
 
 }
 
-int isEltInList(h_std_list list, int val) {
+int isEltInList(LIST list, int val) {
 
     p_cell tmp = list.head;
     int is_elt_in_list = 0;
@@ -172,7 +172,7 @@ int isEltInList(h_std_list list, int val) {
     // Parcours de la liste
     while(tmp != NULL && is_elt_in_list != 1) {
 
-        if (tmp->val == val) {
+        if (tmp->value == val) {
             is_elt_in_list = 1;
         }
 

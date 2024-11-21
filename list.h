@@ -11,29 +11,29 @@
 typedef struct s_std_list
 {
     p_cell head;
-} h_std_list;
+} LIST;
 
 // Ajouter une cellule en fin de liste
-void addTailList(h_std_list* list, int val);
+void addTailList(LIST* list, int val);
 
 // Fonction d'affichage de la liste
-void displayHList(h_std_list list);
+void displayHList(LIST list);
 
 // Supprimer un éléments de la liste
-void Deleteelt(h_std_list* list, int val);
+void Deleteelt(LIST* list, int val);
 
 // Créer une nouvelle liste sans un élément donné
-h_std_list* removeElt(h_std_list list, int val);
+LIST* removeElt(LIST list, int val);
 
 // Création d'une liste vide
-h_std_list* createListEmpty();
+LIST* createListEmpty();
 
 // Fonction qui compte le nombre d'élément dans une liste
-int countEltHList(h_std_list list);
+int countEltHList(LIST list);
 
 // Trouver un élément en fonction de sa place dans la liste
-int findElt(h_std_list list, int nb);
+int findElt(LIST list, int nb);
 
-int isEltInList(h_std_list list, int val);
+int isEltInList(LIST list, int val);
 
 #endif //CC_LIST_H
