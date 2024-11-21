@@ -23,6 +23,10 @@ void Deleteelt(LIST* list, int val);
 // Créer une nouvelle liste sans un élément donné
 LIST* removeElt(LIST list, int val);
 
+// Retire une valeur de la liste
+int removeValFromList(LIST*, int);
+
+// Création d'une liste vide
 LIST* createListEmpty();
 
 int countEltHList(LIST list);

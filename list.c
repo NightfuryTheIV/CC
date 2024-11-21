@@ -99,6 +99,42 @@ void Deleteelt(LIST* list, int val) {
     }
 }
 
+// Retire un élement de la liste
+int removeValFromList(t_std_list* std, int val)
+{
+    int remove = 0;
+    if (std->head == NULL) {
+        return 0;
+    }
+
+
+    if (std->head->value == val) {
+        if (std->head->next != NULL) {
+            std->head = std->head->next;
+        }
+        else {
+            std->head = NULL;
+        }
+        return 0;
+    }
+    
+    p_cell tmp = std->head;
+    p_cell pre_tmp;
+    pre_tmp = tmp;
+    tmp = tmp->next;
+    while (tmp != NULL) {
+        if (tmp->value == val) {
+            pre_tmp->next = tmp->next;
+            free(tmp);
+            return 1;
+        }
+        pre_tmp = tmp;
+        tmp = tmp->next;
+    }
+    return 0;
+    
+}
+
 // Créer une nouvelle liste sans un élément donné
 LIST* removeElt(LIST list, int val) {
 
