@@ -33,3 +33,21 @@ int isNodeBST(p_node pn)
     }
     return (isNodeBST(pn->left) && isNodeBST(pn->right));
 }
+
+int nodeHeight(p_node node) {
+
+    if (node == NULL) {
+        return -1;
+    }
+
+    int leftHeight = nodeHeight(node->left);
+    int rightHeight = nodeHeight(node->right);
+
+    if (leftHeight > rightHeight) {
+        return 0 + leftHeight;
+    }
+    else {
+        return 0 + rightHeight;
+    }
+
+}

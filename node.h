@@ -1,6 +1,4 @@
-//
-// Created by moind on 21/11/2024.
-//
+#include <stdlib.h>
 
 #ifndef CC_NODE_H
 #define CC_NODE_H
@@ -26,5 +24,6 @@ p_node createNode(int);
 
 int isNodeBST(p_node);
 
+int nodeHeight(p_node* node);
 
 #endif //CC_NODE_H

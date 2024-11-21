@@ -16,4 +16,6 @@ p_tree createEmptyTree();
 
 int isBST(t_tree);
 
+int treeHeight(p_node root);
+
 #endif //CC_TREE_H

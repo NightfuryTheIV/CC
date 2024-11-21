@@ -12,7 +12,9 @@ p_tree createEmptyTree() {
     t_tree* tree = (t_tree*)malloc(sizeof (t_tree));
     tree->root = NULL;
     return tree;
+
 }
+
 
 int isBST(t_tree t) {
     return isNodeBST(t.root);
