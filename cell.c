@@ -13,7 +13,7 @@
  * @return : void
  */
 void displayCell(t_cell cell) {
-    printf("%d", cell.val);
+    printf("%d", cell.value);
 }
 
 /***
@@ -23,9 +23,8 @@ void displayCell(t_cell cell) {
  */
 p_cell createCell(int val) {
     p_cell cell = (p_cell) malloc(sizeof (t_cell));
-    cell->val = val;
+    cell->value = val;
     cell->next = NULL;
-    cell->prec = NULL;
     return cell;
 }
 

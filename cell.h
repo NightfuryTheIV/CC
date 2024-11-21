@@ -12,8 +12,7 @@
 // structure pour les cellules d'une liste
 struct s_cell
 {
-    struct s_cell *prec;
-    int val;
+    int value;
     struct s_cell *next;
 };
 typedef struct s_cell t_cell, *p_cell;
