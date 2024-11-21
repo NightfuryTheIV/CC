@@ -33,6 +33,13 @@ void addTailList(h_std_list* list, int val) {
     }
 }
 
+// Ajouter une cellule en tête de liste
+void addHeadStd(t_std_list * std, int val) {
+    p_cell new_cell = createCell(val);
+    new_cell->next = std->head;
+    std->head = new_cell;
+}
+
 // Fonction d'affichage de la liste
 void displayHList(h_std_list list) {
 
