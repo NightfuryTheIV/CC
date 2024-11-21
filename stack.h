@@ -5,6 +5,8 @@
 #ifndef CC_STACK_H
 #define CC_STACK_H
 
+#include "list.h"
+
 
 /**
  * @brief Structure for the stack of integers
@@ -44,6 +46,18 @@ int pop(t_stack *);
  * @return the top value
  */
 int top(t_stack);
+
+
+
+// ----------------------------------------------------------
+
+
+
+typedef LIST STACKLIST;
+
+STACKLIST createEmptyStack();
+
+int isEmptyStack(STACKLIST stack);
 
 
 #endif //CC_STACK_H

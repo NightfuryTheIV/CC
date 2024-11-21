@@ -6,6 +6,9 @@
 #include <assert.h>
 #include "stack.h"
 
+#ifndef UNTITLED1_STACK_H
+#define UNTITLED1_STACK_H
+
 /**
  * @brief Function to create a stack
  * @param size : the size of the stack
@@ -60,6 +63,29 @@ int top(t_stack stack)
     // the stack must not be empty
     assert(stack.nbElts > 0);
     return stack.values[stack.nbElts - 1];
+}
+
+
+
+
+// ------------------------------------------------------------------------------------
+
+
+
+
+STACKLIST createEmptyStack() {
+    STACKLIST s;
+    s.head = NULL;
+    return s;
+}
+
+int isEmptyStack(STACKLIST stack) {
+    int isin=0;
+    if (stack.head == NULL) {
+        isin++;
+    }
+
+    return isin;
 }
 
 #endif //UNTITLED1_STACK_H
