@@ -16,9 +16,11 @@ p_tree createEmptyTree();
 
 int isBST(t_tree);
 
+p_node searchBST(t_tree t, int val);
+
 int treeHeight(p_node root);
 
-int treeNodeCount(p_node* root);
+int treeNodeCount(p_node root);
 
 p_node pnodeValueInTree(p_node root, int value);
 

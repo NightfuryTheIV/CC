@@ -15,9 +15,33 @@ p_tree createEmptyTree() {
 
 }
 
-
 int isBST(t_tree t) {
     return isNodeBST(t.root);
+}
+
+p_node searchBST(t_tree t, int val)
+{
+    p_node temp = t.root;
+    while (temp != NULL) {
+        if (val > temp->value) {
+            if (temp->right == NULL) {
+                return NULL;
+            } else {
+                temp = temp->right;
+            }
+
+        } else if (val < temp->value) {
+            if (temp->left == NULL) {
+                return NULL;
+            } else {
+                temp = temp->left;
+            }
+
+        } else {
+            return temp;
+        }
+    }
+    return NULL;
 }
 
 
