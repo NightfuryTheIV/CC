@@ -158,3 +158,12 @@ p_node createNodeAVL(int *values, int start, int end) {
 
     return newNode;
 }
+
+void updateNodeBF(p_node node) {
+    if (node == NULL) {
+        return;
+    }
+    int leftHeight = (node->left != NULL) ? node->left->height : -1;
+    int rightHeight = (node->right != NULL) ? node->right->height : -1;
+    node->BF = leftHeight - rightHeight;
+}

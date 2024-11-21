@@ -44,4 +44,6 @@ int isNodeBST(p_node node, int min, int max);
 
 p_node createNodeAVL(int *values, int start, int end);
 
+void updateNodeBF(p_node node);
+
 #endif //CC_NODE_H

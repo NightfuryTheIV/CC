@@ -36,8 +36,6 @@ int intpow(int base, int exp);
 
 void updateTreeHeights(p_node root);
 
-void updateNodeBF(p_node node);
-
 void updateTreeBFs(p_node root);
 
 int isAVL(p_node root);
