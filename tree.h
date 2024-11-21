@@ -20,4 +20,8 @@ int treeHeight(p_node root);
 
 int treeNodeCount(p_node* root);
 
+p_node pnodeValueInTree(p_node root, int value);
+
+void updateTreeDepth(p_node root);
+
 #endif //CC_TREE_H

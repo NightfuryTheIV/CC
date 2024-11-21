@@ -28,3 +28,11 @@ int treeHeight(p_node root) {
 int treeNodeCount(p_node root) {
     return nodeCount(root);
 }
+
+p_node pnodeValueInTree(p_node root, int value) {
+    return seekNodeValue(root, value);
+}
+
+void updateTreeDepth(p_node root) {
+    updateNodeDepth(root, 0);
+}

@@ -28,5 +28,9 @@ int nodeHeight(p_node node);
 
 int nodeCount(p_node node);
 
+p_node seekNodeValue(p_node node, int value);
+
+void updateNodeDepth(p_node node, int depth);
+
 
 #endif //CC_NODE_H

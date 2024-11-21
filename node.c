@@ -63,3 +63,36 @@ int nodeCount(p_node node) {
 
     return 1 + leftCount + rightCount;
 }
+
+
+p_node seekNodeValue(p_node node, int value) {
+
+    if (node == NULL) {
+        return NULL;
+    }
+
+    if (node->value == value) {
+        return node;
+    }
+
+    p_node foundNode = seekNodeValue(node->left, value);
+
+    if (foundNode == NULL) {
+        foundNode = seekNodeValue(node->right, value);
+    }
+
+    return foundNode;
+}
+
+void updateNodeDepth(p_node node, int depth) {
+
+    if (node == NULL) {
+        return;
+    }
+
+    node->depth = depth;
+
+    // Mettre à jour les profondeurs des sous-arbres
+    updateNodeDepth(node->left, depth + 1);
+    updateNodeDepth(node->right, depth + 1);
+}
