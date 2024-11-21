@@ -31,6 +31,8 @@ h_std_list* createListEmpty();
 // Fonction qui compte le nombre d'élément dans une liste
 int countEltHList(h_std_list list);
 
+// Compter le nombre d'occurence d'une valeur
+int countVal(t_std_list, int);
 // Ajouter une cellule au début de la liste
 void addHeadStd(t_std_list *, int);
 
