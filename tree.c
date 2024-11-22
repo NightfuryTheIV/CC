@@ -160,27 +160,27 @@ void BFVisit(p_node root) {
     t_queue_tab q = createEmptyQueue();
 
     // Ajouter la racine dans la file
-    enqueueTab_Queue(&q, root);
+    enqueueTabQueue(&q, root);
 
-    while (!isQueueEmpty(q)) {
+    while (!isTabQueueEmpty(q)) {
 
         // Extraire le nœud en tête de la file
-        p_node current = dequeueTab_Queue(&q);
+        p_node current = dequeueTabQueue(&q);
 
         // Afficher la valeur du nœud
         printf("%d ", current->value);
 
         // Ajouter les enfants gauche et droit à la file
         if (current->left != NULL) {
-            enqueueTab_Queue(&q, current->left);
+            enqueueTabQueue(&q, current->left);
         }
         if (current->right != NULL) {
-            enqueueTab_Queue(&q, current->right);
+            enqueueTabQueue(&q, current->right);
         }
     }
 
     // Libérer la mémoire utilisée par la file
-    freeQueue(&q);
+    freeTabQueue(&q);
 }
 
 t_tree createAVL(int *values, int size) {

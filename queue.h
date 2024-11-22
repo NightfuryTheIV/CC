@@ -55,7 +55,7 @@ void displayQueueL(QUEUELIST);
 
 // ------------------------------------------------------------------------------
 
-#define MAX 2
+#define MAX 10
 
 typedef struct s_queue_tab {
     p_node values[MAX]; // Tableau de pointeurs de nœuds
@@ -64,11 +64,11 @@ typedef struct s_queue_tab {
 
 t_queue_tab createEmptyQueue();
 
-int isQueueEmpty(t_queue_tab);
-int isQueueFull(t_queue_tab);
-void enqueueTab_Queue(t_queue_tab *, p_node);
-p_node dequeueTab_Queue(t_queue_tab *);
-void displayQueue_Tab_Queue(t_queue_tab);
-void freeQueue(t_queue_tab *q);
+int isTabQueueEmpty(t_queue_tab);
+int isTabQueueFull(t_queue_tab);
+void enqueueTabQueue(t_queue_tab *, p_node);
+p_node dequeueTabQueue(t_queue_tab *);
+void displayTabQueue(t_queue_tab);
+void freeTabQueue(t_queue_tab *q);
 
 #endif //CC_QUEUE_H

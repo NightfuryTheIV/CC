@@ -70,25 +70,25 @@ t_queue_tab createEmptyQueue() {
     return q;
 }
 
-int isQueueEmpty(t_queue_tab q) {
+int isTabQueueEmpty(t_queue_tab q) {
     return q.first > q.last;
 }
 
-int isQueueFull(t_queue_tab q) {
+int isTabQueueFull(t_queue_tab q) {
     return q.last == MAX - 1;
 }
 
-void enqueueTab_Queue(t_queue_tab *q, p_node value) {
-    if (isQueueFull(*q)) {
+void enqueueTabQueue(t_queue_tab * q, p_node node) {
+    if (isTabQueueFull(*q)) {
         printf("Queue is full\n");
         return;
     }
     q->last++;
-    q->values[q->last] = value;
+    q->values[q->last] = node;
 }
 
-p_node dequeueTab_Queue(t_queue_tab *q) {
-    if (isQueueEmpty(*q)) {
+p_node dequeueTabQueue(t_queue_tab * q) {
+    if (isTabQueueEmpty(*q)) {
         printf("Queue is empty\n");
         return NULL;
     }
@@ -96,7 +96,7 @@ p_node dequeueTab_Queue(t_queue_tab *q) {
 }
 
 void displayQueueTab_Queue(t_queue_tab q) {
-    if (isQueueEmpty(q)) {
+    if (isTabQueueEmpty(q)) {
         printf("Queue is empty\n");
         return;
     }
@@ -106,9 +106,9 @@ void displayQueueTab_Queue(t_queue_tab q) {
     }
 }
 
-void freeQueue(t_queue_tab *q) {
-    while (!isQueueEmpty(*q)) {
-        p_node node = dequeueTab_Queue(q);
+void freeTabQueue(t_queue_tab *q) {
+    while (!isTabQueueEmpty(*q)) {
+        p_node node = dequeueTabQueue(q);
         if (node != NULL) {
             free(node); // Libère la mémoire du nœud
         }
