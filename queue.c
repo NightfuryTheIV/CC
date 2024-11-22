@@ -60,3 +60,59 @@ void displayQueueL(QUEUELIST q)
     }
     printf("<- in\n");
 }
+
+
+// ----------------------------------------------------------------------------------------------------
+
+
+t_queue_tab createEmptyQueue() {
+    t_queue_tab q = {{0}, 0, -1};
+    return q;
+}
+
+int isQueueEmpty(t_queue_tab q) {
+    return q.first > q.last;
+}
+
+int isQueueFull(t_queue_tab q) {
+    return q.last == MAX - 1;
+}
+
+void enqueueTab_Queue(t_queue_tab *q, p_node value) {
+    if (isQueueFull(*q)) {
+        printf("Queue is full\n");
+        return;
+    }
+    q->last++;
+    q->values[q->last] = value;
+}
+
+p_node dequeueTab_Queue(t_queue_tab *q) {
+    if (isQueueEmpty(*q)) {
+        printf("Queue is empty\n");
+        return NULL;
+    }
+    return q->values[q->first++];
+}
+
+void displayQueueTab_Queue(t_queue_tab q) {
+    if (isQueueEmpty(q)) {
+        printf("Queue is empty\n");
+        return;
+    }
+    printf("Queue contents:\n");
+    for (int i = q.first; i <= q.last; i++) {
+        printf("Value: %d\n", q.values[i]->value); // Affichage des valeurs de chaque nœud
+    }
+}
+
+void freeQueue(t_queue_tab *q) {
+    while (!isQueueEmpty(*q)) {
+        p_node node = dequeueTab_Queue(q);
+        if (node != NULL) {
+            free(node); // Libère la mémoire du nœud
+        }
+    }
+    q->first = 0;
+    q->last = -1;
+}

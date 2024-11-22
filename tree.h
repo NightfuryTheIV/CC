@@ -14,10 +14,6 @@ typedef struct s_tree
 
 p_tree createEmptyTree();
 
-int isBST(t_tree);
-
-p_node searchBST(t_tree t, int val);
-
 int treeHeight(p_node root);
 
 int treeNodeCount(p_node root);
@@ -40,16 +36,29 @@ void updateTreeBFs(p_node root);
 
 int isAVL(p_node root);
 
-p_node leftRotation(p_node root);
-
-p_node rightRotation(p_node root);
-
-p_node doublerightRotation(p_node root);
-
-p_node doubleleftRotation(p_node root);
-
 void BFVisit(p_node root);
 
+////////////////////////////////////////
+// TP 4 - Arbres binaires de recherche//
+////////////////////////////////////////
+
+// Vérifie si un arbre est un ABR
+int isBST(t_tree);
+
+// Recherche d'une valeur dans un ABR
+p_node searchBST(t_tree t, int val);
+
+// Créer un arbre AVL (donc un BST)
 t_tree createAVL(int *values, int size);
+
+// Insère un noeud à la bonne place dans un BST
+void insertBST(t_tree *, int);
+
+
+/////////////////
+// TP 6 - AVls //
+/////////////////
+
+
 
 #endif //CC_TREE_H

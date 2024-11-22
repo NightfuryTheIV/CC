@@ -40,10 +40,26 @@ void updateNodeHeight(p_node node);
 
 void computeBFs(p_node node);
 
-int isNodeBST(p_node node, int min, int max);
-
 p_node createNodeAVL(int *values, int start, int end);
 
 void updateNodeBF(p_node node);
+
+/////////////////
+// TP 6 - AVls //
+/////////////////
+
+
+
+/////////////////
+// TP 6 - AVls //
+/////////////////
+
+p_node leftRotation(p_node root);
+
+p_node rightRotation(p_node root);
+
+p_node doublerightRotation(p_node root);
+
+p_node doubleleftRotation(p_node root);
 
 #endif //CC_NODE_H

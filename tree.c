@@ -148,55 +148,7 @@ int isAVL(p_node root) {
     return isAVL(root->left) && isAVL(root->right);
 }
 
-p_node leftRotation(p_node root) {
-    if (root == NULL || root->right == NULL) {
-        return root; // La rotation n'est pas possible
-    }
 
-    p_node newRoot = root->right; // Le nouveau nœud racine
-    root->right = newRoot->left;  // Sous-arbre gauche de B devient le sous-arbre droit de A
-    newRoot->left = root;         // A devient le sous-arbre gauche de B
-
-    // Mettre à jour les hauteurs des nœuds
-    updateNodeHeight(root);
-    updateNodeHeight(newRoot);
-
-    return newRoot; // Retourner la nouvelle racine
-}
-
-p_node rightRotation(p_node root) {
-    if (root == NULL || root->left == NULL) {
-        return root; // La rotation n'est pas possible
-    }
-
-    p_node newRoot = root->left;  // Le nouveau nœud racine
-    root->left = newRoot->right;  // Sous-arbre droit de B devient le sous-arbre gauche de C
-    newRoot->right = root;        // C devient le sous-arbre droit de B
-
-    // Mettre à jour les hauteurs des nœuds
-    updateNodeHeight(root);
-    updateNodeHeight(newRoot);
-
-    return newRoot; // Retourner la nouvelle racine
-}
-
-p_node doublerightRotation(p_node root) {
-    if (root == NULL || root->left == NULL) {
-        return root; // La rotation n'est pas possible
-    }
-
-    root->left = leftRotation(root->left); // Rotation gauche sur le sous-arbre gauche
-    return rightRotation(root);           // Rotation droite sur la racine
-}
-
-p_node doubleleftRotation(p_node root) {
-    if (root == NULL || root->right == NULL) {
-        return root; // La rotation n'est pas possible
-    }
-
-    root->right = rightRotation(root->right); // Rotation droite sur le sous-arbre droit
-    return leftRotation(root);               // Rotation gauche sur la racine
-}
 
 // Parcours en largeur de l'arbre
 void BFVisit(p_node root) {
@@ -205,34 +157,65 @@ void BFVisit(p_node root) {
     }
 
     // Créer une file pour le parcours
-    t_queue q = createQueue(2);
+    t_queue_tab q = createEmptyQueue();
 
     // Ajouter la racine dans la file
-    enqueue(&q, root);
+    enqueueTab_Queue(&q, root);
 
     while (!isQueueEmpty(q)) {
 
         // Extraire le nœud en tête de la file
-        p_node current = dequeue(&q);
+        p_node current = dequeueTab_Queue(&q);
 
         // Afficher la valeur du nœud
         printf("%d ", current->value);
 
         // Ajouter les enfants gauche et droit à la file
         if (current->left != NULL) {
-            enqueue(q, current->left);
+            enqueueTab_Queue(&q, current->left);
         }
         if (current->right != NULL) {
-            enqueue(q, current->right);
+            enqueueTab_Queue(&q, current->right);
         }
     }
 
     // Libérer la mémoire utilisée par la file
-    freeQueue(q);
+    freeQueue(&q);
 }
 
 t_tree createAVL(int *values, int size) {
     t_tree tree;
     tree.root = createNodeAVL(values, 0, size - 1);
     return tree;
+}
+
+
+
+////////////////////////////////////////
+// TP 4 - Arbres binaires de recherche//
+////////////////////////////////////////
+
+void insertBST(t_tree *tree, int value) {
+    p_node newNode = createNode(value);
+    if (tree->root == NULL) {
+        tree->root = newNode; // Cas où l'arbre est vide
+        return;
+    }
+
+    p_node current = tree->root;
+    while (1) {
+        if (value < current->value) {
+            if (current->left == NULL) {
+                current->left = newNode; // Insertion à gauche
+                break;
+            }
+            current = current->left;
+        } else {
+            if (current->right == NULL) {
+                current->right = newNode; // Insertion à droite
+                break;
+            }
+            current = current->right;
+        }
+    }
 }
