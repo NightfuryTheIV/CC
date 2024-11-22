@@ -12,6 +12,7 @@ p_node createNode(int val)
     nouv = (p_node)malloc(sizeof(t_node));
     nouv->value = val;
     nouv->left = nouv->right = NULL;
+    nouv->BF = 0;
 
     return nouv;
 }
