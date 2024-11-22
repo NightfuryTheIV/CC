@@ -5,6 +5,7 @@
 #include <malloc.h>
 #include <assert.h>
 #include "stack.h"
+#include "cell.h"
 
 #ifndef UNTITLED1_STACK_H
 #define UNTITLED1_STACK_H
@@ -86,6 +87,22 @@ int isEmptyStack(STACKLIST stack) {
     }
 
     return isin;
+}
+
+void stackL(STACKLIST* st, int val) {
+    p_cell newcell = createCell(val);
+    if (st->head == NULL) {
+        st->head = newcell;
+    } else {
+        newcell->next = st->head->next;
+        st->head = newcell;
+    }
+}
+
+int destackL(STACKLIST* st) {
+    int val = st->head->value;
+    st->head = st->head->next;
+    return val;
 }
 
 #endif //UNTITLED1_STACK_H

@@ -59,5 +59,9 @@ STACKLIST createEmptyStack();
 
 int isEmptyStack(STACKLIST stack);
 
+void stackL(STACKLIST* st, int val);
+
+int destackL(STACKLIST* st);
+
 
 #endif //CC_STACK_H
